@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# RNR
+# Breakdown Create Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This document provides a comprehensive guide for setting up and running the Breakdown Create Application, which includes an ASP.NET Core backend and a React frontend.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before you begin, ensure you have the following installed:
+- Node.js: Necessary for running the frontend. Download from [Node.js official website](https://nodejs.org/).
+- .NET 5.0 SDK or later: Required for the backend. Available on the [.NET official website](https://dotnet.microsoft.com/download).
+- SQL Server: Or any EF Core supported database for backend data storage.
 
-### `npm start`
+## Project Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Clone the Repository (RNRAPP1{ASP.NET} and rnrview{React}) 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Note: The poject is in two separated Repositories for frontend and backend code separated and it is required to run both projects.
 
-### `npm test`
+Start by cloning the repository to get the project code:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone [repository-url]  # Replace [repository-url] with your repository's URL.
+```
+Install Backend Dependencies
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.11
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.11
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.11
+dotnet add package Newtonsoft.Json --version 13.0.3
+dotnet add package Swashbuckle.AspNetCore --version 6.2.3
 
-### `npm run build`
+Additional Note
+Swagger Integration: The use of Swagger in this setup provides a UI for interacting with the API, making it easier to test and document the API endpoints. Swagger UI is accessible when the app is running in development mode, typically at the /swagger endpoint.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install React Dependencies
+npm install @testing-library/jest-dom@^5.17.0 
+@testing-library/react@^13.4.0 
+@testing-library/user-event@^13.5.0 
+axios@^1.7.7 react@^18.3.1 
+react-datepicker@^7.5.0 r
+eact-dom@^18.3.1 
+react-router-dom@^6.27.0 
+react-scripts@5.0.1 
+web-vitals
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Run the React application:
+npm start
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To add a new migration, use the following command in the Package Manager Console.
+PM> Add-Migration MigrationName
+PM> update-database
